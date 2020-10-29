@@ -23,7 +23,14 @@ class Cart with ChangeNotifier {
   }
 
   int get itemCount {
-    return _items == null ? 0 : itemCount.bitLength;
+    return _items.length;
+  }
+
+  double get totalAmount {
+    var total = 0.0;
+    _items.forEach(
+        (key, cartItem) => total += cartItem.price * cartItem.quantity);
+    return total;
   }
 
   void addItem({int productId, double price, String title}) {
@@ -37,13 +44,20 @@ class Cart with ChangeNotifier {
               title: exisitingItem.title));
     } else {
       _items.putIfAbsent(
-          productId,
-          () => CartItem(
-              id: Random().nextInt(100),
+        productId,
+        () => CartItem(
+              id: Random().nextInt(200),
               title: title,
+              price: price,
               quantity: 1,
-              price: price));
+            ),
+      );
     }
+    notifyListeners();
+  }
+
+  void removeItem(int id) {
+    _items.remove(id);
     notifyListeners();
   }
 }

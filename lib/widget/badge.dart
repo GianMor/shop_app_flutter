@@ -18,8 +18,8 @@ class Badge extends StatelessWidget {
       children: [
         child,
         Positioned(
-          right: 4,
-          top: 4,
+          right: 16,
+          top: 8,
           child: Container(
             // color: Theme.of(context).accentColor,
             decoration: BoxDecoration(
@@ -27,14 +27,14 @@ class Badge extends StatelessWidget {
               color: color != null ? color : Theme.of(context).accentColor,
             ),
             constraints: BoxConstraints(
-              minWidth: 8,
-              minHeight: 8,
+              minWidth: 16,
+              minHeight: 16,
             ),
             child: Text(
               value,
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 5,
+                fontSize: 10,
               ),
             ),
           ),
