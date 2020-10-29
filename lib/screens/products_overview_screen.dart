@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+// import 'package:shop_app_flutter/providers/cart.dart';
+// import 'package:shop_app_flutter/widget/badge.dart';
 import 'package:shop_app_flutter/widget/product_grid.dart';
+// import 'package:provider/provider.dart';
+
 
 enum FilterOptions { Favorites, All }
 
@@ -16,8 +20,8 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
     // final productsContainer = Provider.of<Products>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
-        title: Text('My Shop'),
-        actions: [
+        title: Text('Shop'),
+        actions: <Widget>[
           PopupMenuButton(
               onSelected: (FilterOptions selectedValue) {
                 setState(() {
@@ -38,10 +42,22 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
                     ),
                     PopupMenuItem(
                         child: Text('Show all'), value: FilterOptions.All)
-                  ])
+                  ]),
+          // Consumer<Cart>(
+          //     builder: (_, cart, ch) => Badge(
+          //           child: ch,
+          //           value: cart.itemCount.toString(),
+          //         ),
+              // child:
+               IconButton(
+                icon: Icon(Icons.shopping_cart),
+                onPressed: () {},
+              ),
         ],
       ),
-      body: ProductGrid(showFavs: _showOnlyFavorites,),
+      body: ProductGrid(
+        showFavs: _showOnlyFavorites,
+      ),
     );
   }
 }
