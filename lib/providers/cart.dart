@@ -46,11 +46,11 @@ class Cart with ChangeNotifier {
       _items.putIfAbsent(
         productId,
         () => CartItem(
-              id: Random().nextInt(200),
-              title: title,
-              price: price,
-              quantity: 1,
-            ),
+          id: Random().nextInt(200),
+          title: title,
+          price: price,
+          quantity: 1,
+        ),
       );
     }
     notifyListeners();
@@ -58,6 +58,11 @@ class Cart with ChangeNotifier {
 
   void removeItem(int id) {
     _items.remove(id);
+    notifyListeners();
+  }
+
+  void clear() {
+    _items = {};
     notifyListeners();
   }
 }
