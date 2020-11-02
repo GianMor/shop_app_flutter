@@ -50,7 +50,7 @@ class CartItem extends StatelessWidget {
           child: ListTile(
             leading: CircleAvatar(child: FittedBox(child: Text('\$$price'))),
             title: Text(title),
-            subtitle: Text('Total: \$${(price * quantity)}'),
+            subtitle: Text('Total: \$${(price * quantity).toStringAsFixed(2)}'),
             trailing: Text('$quantity x'),
           ),
         ),
