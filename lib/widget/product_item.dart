@@ -5,11 +5,6 @@ import 'package:shop_app_flutter/screens/product_detail_screen.dart';
 import 'package:provider/provider.dart';
 
 class ProductItem extends StatelessWidget {
-  // final int id;
-  // final String title;
-  // final String imageUrl;
-
-  // const ProductItem({this.id, this.title, this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +16,6 @@ class ProductItem extends StatelessWidget {
         child: GestureDetector(
           onTap: () => Navigator.of(context)
               .pushNamed(ProductDetailScreen.routeName, arguments: product.id),
-          //     .push(MaterialPageRoute(builder: (ctx) => ProductDetailScreen(title: title,))),
 
           child: Image.network(
             product.imageUrl,

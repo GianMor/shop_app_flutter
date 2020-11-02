@@ -4,14 +4,12 @@ import 'package:shop_app_flutter/providers/cart.dart';
 
 class CartItem extends StatelessWidget {
   final String id;
-  // final int productId;
   final double price;
   final int quantity;
   final String title;
 
   const CartItem(
       {this.id,
-      //  this.productId,
       this.price,
       this.quantity,
       this.title});
