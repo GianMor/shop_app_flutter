@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:shop_app_flutter/providers/cart.dart';
 
 class CartItem extends StatelessWidget {
-  final int id;
+  final String id;
   // final int productId;
   final double price;
   final int quantity;

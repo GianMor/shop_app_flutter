@@ -1,10 +1,8 @@
-import 'dart:math';
-
 import 'package:flutter/foundation.dart';
 import 'package:shop_app_flutter/providers/cart.dart';
 
 class OrderItem {
-  final int id;
+  final String id;
   final double amount;
   final List<CartItem> products;
   final DateTime dateTime;
@@ -27,12 +25,10 @@ class Orders with ChangeNotifier {
     _orders.insert(
         0,
         OrderItem(
-            id: Random(100).nextInt(100),
+            id: DateTime.now().toString(),
             amount: total,
             dateTime: DateTime.now(),
             products: cartProducts));
-            notifyListeners();
+    notifyListeners();
   }
-
-
 }

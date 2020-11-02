@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 
 class Product with ChangeNotifier{
   @required
-  final int id;
+  final String id;
   @required
   final String title;
   @required
