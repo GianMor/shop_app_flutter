@@ -73,9 +73,10 @@ class Products with ChangeNotifier {
             price: prodData['price'],
             isFavorite:
                 favoriteData == null ? false : favoriteData[prodId] ?? false));
+
+        _items = loadProducts;
+        notifyListeners();
       });
-      _items = loadProducts;
-      notifyListeners();
     } catch (error) {
       print(error);
       throw error;
@@ -93,7 +94,7 @@ class Products with ChangeNotifier {
             'description': newProduct.description,
             'price': newProduct.price,
             'imageUrl': newProduct.imageUrl,
-            'isFavorite': newProduct.isFavorite,
+            //'isFavorite': newProduct.isFavorite,
           }));
       _items[prodIndex] = newProduct;
       notifyListeners();

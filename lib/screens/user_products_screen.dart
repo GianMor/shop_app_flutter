@@ -36,7 +36,7 @@ class _UserProductsScreenState extends State<UserProductsScreen> {
       body: FutureBuilder(
         future: _refreshProducts(context),
         builder: (ctx, _) {
-          _.connectionState == ConnectionState.waiting
+          return _.connectionState == ConnectionState.waiting
               ? Center(child: CircularProgressIndicator())
               : RefreshIndicator(
                   onRefresh: () => _refreshProducts(context),
