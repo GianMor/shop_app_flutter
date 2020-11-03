@@ -1,20 +1,13 @@
 import 'package:flutter/cupertino.dart';
-<<<<<<< HEAD
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:async';
-=======
-
-import 'package:http/http.dart' as http;
-import 'dart:convert';
->>>>>>> c60f227dda59b984d8443e10f98c25acf25c6445
 
 import 'package:shop_app_flutter/models/http_exception.dart';
 
 class Auth with ChangeNotifier {
-<<<<<<< HEAD
   final key = 'AIzaSyAqtWulCGP9NZ48dIGGZCmuydrq_5kex3A';
 
   String _token;
@@ -34,11 +27,6 @@ class Auth with ChangeNotifier {
     }
     return null;
   }
-=======
-  String _token;
-  DateTime _expiryDate;
-  String _userId;
->>>>>>> c60f227dda59b984d8443e10f98c25acf25c6445
 
   Future<void> _authenticate(
       String email, String password, String urlSegment) async {
@@ -56,15 +44,12 @@ class Auth with ChangeNotifier {
       if (responseData['error'] != null) {
         throw HttpException(responseData['error']['message']);
       }
-<<<<<<< HEAD
       _token = responseData['idToken'];
       _userId = responseData['localId'];
       _expiryDate = DateTime.now()
           .add(Duration(seconds: int.parse(responseData['expiresIn'])));
       _autoLogout();
       notifyListeners();
-=======
->>>>>>> c60f227dda59b984d8443e10f98c25acf25c6445
     } catch (error) {
       throw error;
     }
@@ -77,7 +62,6 @@ class Auth with ChangeNotifier {
   Future<void> login(String email, String password) async {
     return _authenticate(email, password, 'signInWithPassword');
   }
-<<<<<<< HEAD
 
   void logout() {
     _token = null;
@@ -97,6 +81,4 @@ class Auth with ChangeNotifier {
     final timeToExpiry = _expiryDate.difference(DateTime.now()).inSeconds;
     _authTimer = Timer(Duration(seconds: timeToExpiry), logout);
   }
-=======
->>>>>>> c60f227dda59b984d8443e10f98c25acf25c6445
 }

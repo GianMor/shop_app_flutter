@@ -104,6 +104,7 @@ class Products with ChangeNotifier {
     final url =
         'https://shop-app-flutter-firebase.firebaseio.com/products/$id.json?auth=$authToken';
     final existingProductIndex = _items.indexWhere((p) => p.id == id);
+    // ignore: unused_local_variable
     var existingProduct = _items[existingProductIndex];
     _items.removeAt(existingProductIndex);
     notifyListeners();
