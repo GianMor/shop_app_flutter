@@ -20,12 +20,16 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (ctx) => Auth()),
+<<<<<<< HEAD
           ChangeNotifierProxyProvider<Auth, Products>(
               update: (ctx, auth, previousProducts) => Products(
                   auth.token,
                   previousProducts == null ? [] : previousProducts.items,
                   auth.userId),
               create: null),
+=======
+          ChangeNotifierProvider(create: (ctx) => Products()),
+>>>>>>> c60f227dda59b984d8443e10f98c25acf25c6445
           ChangeNotifierProvider(create: (ctx) => Cart()),
           ChangeNotifierProxyProvider<Auth, Orders>(
             update: (ctx, auth, previousOrders) => Orders(
@@ -35,6 +39,7 @@ class MyApp extends StatelessWidget {
             create: null,
           )
         ],
+<<<<<<< HEAD
         child: Consumer<Auth>(
             builder: (ctx, auth, child) => MaterialApp(
                     title: 'My Shop',
@@ -52,5 +57,21 @@ class MyApp extends StatelessWidget {
                           UserProductsScreen(),
                       EditProductScreen.routeName: (ctx) => EditProductScreen(),
                     })));
+=======
+        child: MaterialApp(
+            title: 'My Shop',
+            theme: ThemeData(
+                accentColor: Colors.teal,
+                primarySwatch: Colors.amber,
+                fontFamily: 'Lato'),
+            home: AuthScreen(),
+            routes: {
+              ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
+              CartScreen.routeName: (ctx) => CartScreen(),
+              OrdersScreen.routeName: (ctx) => OrdersScreen(),
+              UserProductsScreen.routeName: (ctx) => UserProductsScreen(),
+              EditProductScreen.routeName: (ctx) => EditProductScreen(),
+            }));
+>>>>>>> c60f227dda59b984d8443e10f98c25acf25c6445
   }
 }
