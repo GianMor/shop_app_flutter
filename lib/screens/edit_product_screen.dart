@@ -190,9 +190,6 @@ class _EditProductScreenState extends State<EditProductScreen> {
                           if (_.isEmpty) {
                             return 'Enter a description';
                           }
-                          if (_.length < 10) {
-                            return 'At least 10 characters';
-                          }
                           return null;
                         },
                         onSaved: (_) => _editProduct = Product(

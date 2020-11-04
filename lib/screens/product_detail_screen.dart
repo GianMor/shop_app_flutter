@@ -18,13 +18,14 @@ class ProductDetailScreen extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              height: 300,
-              width: double.infinity,
-              child: Image.network(
-                loadedProduct.imageUrl,
-                fit: BoxFit.cover,
-              ),
-            ),
+                height: 300,
+                width: double.infinity,
+                child: Hero(
+                    tag: loadedProduct.id,
+                    child: Image.network(
+                      loadedProduct.imageUrl,
+                      fit: BoxFit.cover,
+                    ))),
             SizedBox(
               height: 10,
             ),
@@ -35,12 +36,14 @@ class ProductDetailScreen extends StatelessWidget {
             Container(
               padding: EdgeInsets.symmetric(horizontal: 10),
               width: double.infinity,
-              child: Text(
-                loadedProduct.description,
-                textAlign: TextAlign.center,
-                softWrap: true,
-              ),
-            )
+              child: loadedProduct.description != null
+                  ? Text(
+                      loadedProduct.description,
+                      textAlign: TextAlign.center,
+                      softWrap: true,
+                    )
+                  : Text(''),
+            ),
           ],
         ),
       ),
